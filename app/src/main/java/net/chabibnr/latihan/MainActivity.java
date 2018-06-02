@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Navigation.TabNavigation;
 import net.chabibnr.latihan.SystemBar.DimSystemBar;
 import net.chabibnr.latihan.SystemBar.FullScreenMode;
@@ -46,6 +47,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void activityNavigationTab(View view){
         Intent i = new Intent(this, TabNavigation.class);
+        startActivity(i);
+    }
+
+    public void activityRecyclerView(View view){
+        Intent i = new Intent(this, ContentRecyclerView.class);
         startActivity(i);
     }
 }
