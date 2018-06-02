@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:onClick="activityDimSystemBar"
+        android:text="Dim System Bar (Notification Bar)"
+        />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:onClick="activityHiddenStatusBar"
+        android:text="hidden status bar " />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:onClick="activityHiddenNavigationBar"
+        android:text="Hidden Navigation Bar" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:onClick="activityFullScreenMode"
+        android:text="FullScreen Mode" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:onClick="activityFullScreenModeWithResponseChange"
+        android:text="FullScreen Mode Response Change" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="92dp"
+        android:onClick="activityNavigationTab"
+        android:text="Navigation TAb" />
+</LinearLayout>
