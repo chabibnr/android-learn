@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import net.chabibnr.latihan.Model;
 import net.chabibnr.latihan.Navigation.tab.CollectionPagerAdapter;
 import net.chabibnr.latihan.R;
+import net.chabibnr.latihan.SystemBar.DimSystemBar;
 
 public class ContentRecyclerView extends AppCompatActivity{
 
@@ -22,13 +24,14 @@ public class ContentRecyclerView extends AppCompatActivity{
         final ActionBar actionBar = getActionBar();
         setContentView(R.layout.activity_content_recyclerview);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
-
         mRecyclerView.setHasFixedSize(true);
+
+        Model model = new Model(this);
+        model.add("Dim System Bar", "notification bar ", DimSystemBar.class);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        String[] myAdapter = new String[] {"element1","element2","element3"};
-        mAdapter = new RecyclerViewAdapter(myAdapter);
+        mAdapter = new RecyclerViewAdapter(model);
         mRecyclerView.setAdapter(mAdapter);
 
     }
