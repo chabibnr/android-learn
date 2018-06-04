@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Full Screen Mode", "Fullscreen", FullScreenMode.class);
         mModel.add("Fullscreen mode response change", "Fullscreen dengan callback status", FullScreenModeWithResponseChange.class);
         mModel.add("Navigation Tab", "Tab Navigasi", TabNavigation.class);
-        mModel.add("Recycler View", "List item dengan Recycler View", ContentRecyclerView.class);
+        mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @Override
     public void onRefresh() {
+        /*
         ArrayList<Model.Item> items = new ArrayList<Model.Item>();
         Model.Item item = mModel.createItem("TEst", "Keterangan", HiddenStatusBar.class);
         items.add(item);
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         Model.Item item3 = mModel.createItem("TEst", "Keterangan", HiddenStatusBar.class);
         items.add(item3);
         mAdapter.addModel(items);
-
+*/
         mSwipeRefreshLayout.setRefreshing(false);
     }
 }

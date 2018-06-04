@@ -1,39 +1,60 @@
 package net.chabibnr.latihan.Content;
 
-import android.app.ActionBar;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import net.chabibnr.latihan.Model;
-import net.chabibnr.latihan.Navigation.tab.CollectionPagerAdapter;
-import net.chabibnr.latihan.R;
-import net.chabibnr.latihan.SystemBar.DimSystemBar;
 
-public class ContentRecyclerView extends AppCompatActivity{
+import net.chabibnr.latihan.Adapter.RecyclerViewAdapter;
+import net.chabibnr.latihan.Models.PackageModel;
+import net.chabibnr.latihan.R;
+
+public class ContentRecyclerView extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+
 
     RecyclerView mRecyclerView;
-    RecyclerView.Adapter mAdapter;
+    RecyclerViewAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final ActionBar actionBar = getActionBar();
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("RecyclerView");
         setContentView(R.layout.activity_content_recyclerview);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
-        Model model = new Model(this);
-        model.add("Dim System Bar", "notification bar ", DimSystemBar.class);
+        // SwipeRefreshLayout
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
+                android.R.color.holo_green_dark,
+                android.R.color.holo_orange_dark,
+                android.R.color.holo_blue_dark);
+
+        PackageModel model = new PackageModel(this);
+
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new RecyclerViewAdapter(model);
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
 
     }
 
+    @Override
+    public void onRefresh() {
+        //PackageModel model = new PackageModel(this);
+        //mAdapter.addModel(model.all());
+        mSwipeRefreshLayout.setRefreshing(false);
+    }
 }
