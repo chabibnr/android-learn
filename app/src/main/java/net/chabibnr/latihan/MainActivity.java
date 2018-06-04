@@ -8,6 +8,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import net.chabibnr.latihan.Content.ContentCalendar;
 import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Content.RecyclerViewAdapter;
 import net.chabibnr.latihan.Navigation.TabNavigation;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Fullscreen mode response change", "Fullscreen dengan callback status", FullScreenModeWithResponseChange.class);
         mModel.add("Navigation Tab", "Tab Navigasi", TabNavigation.class);
         mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
+        mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
