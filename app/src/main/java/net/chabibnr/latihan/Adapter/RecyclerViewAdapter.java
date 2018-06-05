@@ -76,7 +76,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //holder.mTextView.setText(mDataset[position]);
         PackageModel item = mDataset.get(position);
         TextView textTitle = (TextView) holder.mView.findViewById(R.id.text_title);
-        TextView textId = (TextView) holder.mView.findViewById(R.id.text_id);
+        TextView textId = (TextView) holder.mView.findViewById(R.id.text_description);
         ImageView imageView = (ImageView) holder.mView.findViewById(R.id.imageView);
         textTitle.setText(item.getName());
         textId.setText(item.getId());
