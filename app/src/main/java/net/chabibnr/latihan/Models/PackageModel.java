@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 
@@ -17,6 +18,7 @@ public class PackageModel {
 
     private String id;
     private Drawable icon;
+    private Bitmap iconBitmap;
     private String version;
     private String name;
 
@@ -36,6 +38,10 @@ public class PackageModel {
 
     public Drawable getIcon() {
         return icon;
+    }
+
+    public Bitmap getIconx(){
+        return iconBitmap;
     }
 
     public String getName() {
