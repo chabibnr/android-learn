@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import net.chabibnr.latihan.Content.CollapsingToolbar;
 import net.chabibnr.latihan.Content.ContentCalendar;
 import net.chabibnr.latihan.Content.ContentGithub;
+import net.chabibnr.latihan.Content.ContentGridLayout;
 import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Content.RecyclerViewAdapter;
 import net.chabibnr.latihan.Navigation.TabNavigation;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
-        // SwipeRefre   shLayout
+        // SwipeRefreshLayout
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
@@ -55,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
         mModel.add("Github Repository", "Menampilkan daftar repo", ContentGithub.class);
         mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
-        mModel.add("Collapsing Toolbar", "Collapsing toolbar", CollapsingToolbar.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
