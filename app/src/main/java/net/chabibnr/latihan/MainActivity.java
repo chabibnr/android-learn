@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 
 import net.chabibnr.latihan.Content.ContentCalendar;
 import net.chabibnr.latihan.Content.ContentGithub;
+import net.chabibnr.latihan.Content.ContentGridLayout;
 import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Content.RecyclerViewAdapter;
 import net.chabibnr.latihan.Navigation.TabNavigation;
@@ -18,8 +19,6 @@ import net.chabibnr.latihan.SystemBar.FullScreenMode;
 import net.chabibnr.latihan.SystemBar.FullScreenModeWithResponseChange;
 import net.chabibnr.latihan.SystemBar.HiddenNavigationBar;
 import net.chabibnr.latihan.SystemBar.HiddenStatusBar;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     RecyclerView mRecyclerView;
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
         mModel.add("Github Repository", "Menampilkan daftar repo", ContentGithub.class);
         mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
+        mModel.add("Grid Layout", "Menampilkan data Grid", ContentGridLayout.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
