@@ -56,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
         mModel.add("Github Repository", "Menampilkan daftar repo", ContentGithub.class);
         mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
+        mModel.add("Grid Layout", "Menampilkan data Grid", ContentGridLayout.class);
+        mModel.add("Collapsing Toolbar", "Collapsing toolbar", CollapsingToolbar.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
