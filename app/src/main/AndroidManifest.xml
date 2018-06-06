@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.chabibnr.latihan">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,62 +14,81 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SystemBar.DimSystemBar" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".SystemBar.DimSystemBar"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SystemBar.HiddenStatusBar" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".SystemBar.HiddenStatusBar"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SystemBar.HiddenNavigationBar" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".SystemBar.HiddenNavigationBar"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SystemBar.FullScreenMode" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".SystemBar.FullScreenMode"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".SystemBar.FullScreenModeWithResponseChange" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".SystemBar.FullScreenModeWithResponseChange"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Navigation.TabNavigation" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Navigation.TabNavigation"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Content.ContentRecyclerView" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Content.ContentRecyclerView"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Content.ContentCalendar" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Content.ContentCalendar"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Content.ContentGithub" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Content.ContentGithub"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".Content.CollapsingToolbar"
+            android:label="@string/title_activity_collapsing_toolbar"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 
