@@ -19,6 +19,7 @@ import java.util.ArrayList;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
     private ArrayList<PackageModel> mDataset = new ArrayList<PackageModel>();
+    private int mainLayout = R.layout.content_recyclerview_item_image;
     //private static PackageModel mModel;
 
     public static class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
@@ -46,6 +47,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.addModel(m.all());
     }
 
+    public RecyclerViewAdapter(PackageModel m, int layout){
+        //mModel = m;
+        mainLayout = layout;
+        this.addModel(m.all());
+    }
+
     public RecyclerViewAdapter addModel(ArrayList<PackageModel> item){
         if(mDataset == null){
             mDataset = new ArrayList<PackageModel>();
@@ -66,7 +73,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         */
 
         /* Versi View */
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_recyclerview_item_image, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(mainLayout, parent, false);
         RecyclerViewAdapter.ViewHolder vh = new RecyclerViewAdapter.ViewHolder(v);
         return vh;
     }
