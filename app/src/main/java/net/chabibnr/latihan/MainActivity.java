@@ -14,6 +14,7 @@ import net.chabibnr.latihan.Content.ContentGithub;
 import net.chabibnr.latihan.Content.ContentGridLayout;
 import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Content.ContentRecyclerViewHorizontal;
+import net.chabibnr.latihan.Content.ContentRecyclerViewWithScrollView;
 import net.chabibnr.latihan.Content.RecyclerViewAdapter;
 import net.chabibnr.latihan.Navigation.TabNavigation;
 import net.chabibnr.latihan.SystemBar.DimSystemBar;
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Navigation Tab", "Tab Navigasi", TabNavigation.class);
         mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
         mModel.add("RecyclerView Horizontal", "List daftar aplikasi Horizontal", ContentRecyclerViewHorizontal.class);
+        mModel.add("Recycler ScrollView", "REcyclerView + Scrollview", ContentRecyclerViewWithScrollView.class);
         mModel.add("Github Repository", "Menampilkan daftar repo", ContentGithub.class);
         mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
         mModel.add("Grid Layout", "Menampilkan data Grid", ContentGridLayout.class);
