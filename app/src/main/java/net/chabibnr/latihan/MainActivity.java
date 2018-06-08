@@ -25,8 +25,6 @@ import net.chabibnr.latihan.SystemBar.FullScreenModeWithResponseChange;
 import net.chabibnr.latihan.SystemBar.HiddenNavigationBar;
 import net.chabibnr.latihan.SystemBar.HiddenStatusBar;
 
-import java.util.ArrayList;
-
 public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     RecyclerView mRecyclerView;
     RecyclerViewAdapter mAdapter;
@@ -65,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
         mModel.add("Grid Layout", "Menampilkan data Grid", ContentGridLayout.class);
         mModel.add("Collapsing Toolbar", "Collapsing toolbar", CollapsingToolbar.class);
+        mModel.add("MAP", "Google Map", MapsActivity.class);
         mModel.add("Settings", "Halaman Pengaturan", SettingsActivity.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
