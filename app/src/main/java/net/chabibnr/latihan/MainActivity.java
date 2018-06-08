@@ -16,6 +16,7 @@ import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Content.ContentRecyclerViewHorizontal;
 import net.chabibnr.latihan.Content.ContentRecyclerViewWithScrollView;
 import net.chabibnr.latihan.Content.RecyclerViewAdapter;
+import net.chabibnr.latihan.Navigation.BottomNavigation;
 import net.chabibnr.latihan.Navigation.TabNavigation;
 import net.chabibnr.latihan.SystemBar.DimSystemBar;
 import net.chabibnr.latihan.SystemBar.FullScreenMode;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Full Screen Mode", "Fullscreen", FullScreenMode.class);
         mModel.add("Fullscreen mode response change", "Fullscreen dengan callback status", FullScreenModeWithResponseChange.class);
         mModel.add("Navigation Tab", "Tab Navigasi", TabNavigation.class);
+        mModel.add("Navigation Bottom", "Bottom Navigasi", BottomNavigation.class);
         mModel.add("RecyclerView", "List daftar aplikasi", ContentRecyclerView.class);
         mModel.add("RecyclerView Horizontal", "List daftar aplikasi Horizontal", ContentRecyclerViewHorizontal.class);
         mModel.add("Recycler ScrollView", "REcyclerView + Scrollview", ContentRecyclerViewWithScrollView.class);
