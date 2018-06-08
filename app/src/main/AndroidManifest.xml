@@ -104,18 +104,23 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Content.ContentGridLayout" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Content.ContentGridLayout"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
-        <activity android:name=".Content.ContentRecyclerViewWithScrollView" android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".Content.ContentRecyclerViewWithScrollView"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"
-                />
+                android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".Content.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

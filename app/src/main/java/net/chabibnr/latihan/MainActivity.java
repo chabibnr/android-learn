@@ -16,6 +16,7 @@ import net.chabibnr.latihan.Content.ContentRecyclerView;
 import net.chabibnr.latihan.Content.ContentRecyclerViewHorizontal;
 import net.chabibnr.latihan.Content.ContentRecyclerViewWithScrollView;
 import net.chabibnr.latihan.Content.RecyclerViewAdapter;
+import net.chabibnr.latihan.Content.SettingsActivity;
 import net.chabibnr.latihan.Navigation.BottomNavigation;
 import net.chabibnr.latihan.Navigation.TabNavigation;
 import net.chabibnr.latihan.SystemBar.DimSystemBar;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Calendar", "Menampilkan Kalender", ContentCalendar.class);
         mModel.add("Grid Layout", "Menampilkan data Grid", ContentGridLayout.class);
         mModel.add("Collapsing Toolbar", "Collapsing toolbar", CollapsingToolbar.class);
+        mModel.add("Settings", "Halaman Pengaturan", SettingsActivity.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
