@@ -42,6 +42,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng semarang = new LatLng(-7.010481, 110.4813503);
         mMap.addMarker(new MarkerOptions().position(semarang).title("Semarang Tamansari"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(semarang));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(semarang, 12.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(semarang, 16.0f));
     }
 }
