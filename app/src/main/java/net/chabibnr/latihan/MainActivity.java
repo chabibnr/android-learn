@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mModel.add("Collapsing Toolbar", "Collapsing toolbar", CollapsingToolbar.class);
         mModel.add("MAP", "Google Map", MapsActivity.class);
         mModel.add("Settings", "Halaman Pengaturan", SettingsActivity.class);
+        mModel.add("Realtime Database", "Firebase Realtime Database", FirebaseActivity.class);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());

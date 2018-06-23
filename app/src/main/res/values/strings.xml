@@ -166,4 +166,5 @@
     <string name="pref_title_vibrate">Vibrate</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_deep_link">DeepLinkActivity</string>
+    <string name="title_activity_firebase">FirebaseActivity</string>
 </resources>
