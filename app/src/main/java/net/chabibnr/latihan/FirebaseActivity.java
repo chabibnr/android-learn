@@ -7,12 +7,16 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FirebaseActivity extends AppCompatActivity {
     Context mContext;
@@ -26,34 +30,34 @@ public class FirebaseActivity extends AppCompatActivity {
         mContext = this;
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("message");
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
+
                 myRef.setValue("Hello Worlds");
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-        Button btnService = (Button) findViewById(R.id.button_service);
-        btnService.setOnClickListener(new View.OnClickListener() {
+        final TextView textFirebase = (TextView) findViewById(R.id.text_firebase);
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, MyFirebaseInstanceIdService.class);
-                startService(i);
-
-                Intent i1 = new Intent(mContext, MyFirebaseMessagingService.class);
-                startService(i1);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                String value = dataSnapshot.getValue(String.class);
+                //Log.d(TAG, "Value is: " + value);
+                textFirebase.setText(value);
             }
-        });
 
-        findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String token = ((TextView) findViewById(R.id.token)).getText().toString();
-                String message = ((TextView) findViewById(R.id.message)).getText().toString();
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                //Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
     }
