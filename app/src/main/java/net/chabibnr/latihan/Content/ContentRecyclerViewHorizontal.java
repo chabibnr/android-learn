@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import net.chabibnr.latihan.Adapter.RecyclerViewAdapter;
 import net.chabibnr.latihan.Models.PackageModel;
@@ -42,10 +43,26 @@ public class ContentRecyclerViewHorizontal extends AppCompatActivity implements 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
 
-        mLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, true);
+        mLayoutManager = new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        //mLayoutManager.scrollToPosition(5);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewAdapter(model, R.layout.content_recyclerview_item_image_horizontal);
+        mAdapter = new RecyclerViewAdapter(model, R.layout.content_recyclerview_item_image_horizontal_2);
         mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            int i = 0;
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                i += dx;
+                Log.d("Scroll", "a: "+ dx +" | b:"+ dy+" | c: "+i);
+            }
+        });
+
         //mRecyclerView.addItemDecoration(dividerItemDecoration);
 
     }
