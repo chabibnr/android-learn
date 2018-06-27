@@ -6,14 +6,16 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 
 import net.chabibnr.latihan.Adapter.RecyclerViewAdapter;
 import net.chabibnr.latihan.Models.PackageModel;
 import net.chabibnr.latihan.R;
 
-public class ContentRecyclerViewHorizontal extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class ContentRecyclerViewHorizontal extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
 
 
     RecyclerView mRecyclerView;
@@ -27,11 +29,11 @@ public class ContentRecyclerViewHorizontal extends AppCompatActivity implements 
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("RecyclerView Horizontal");
         setContentView(R.layout.activity_content_recyclerview);
-        mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        mRecyclerView = findViewById(R.id.my_recycler_view);
         mRecyclerView.setHasFixedSize(true);
 
         // SwipeRefreshLayout
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_container);
+        mSwipeRefreshLayout = findViewById(R.id.swipe_container);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary,
                 android.R.color.holo_green_dark,
@@ -48,6 +50,9 @@ public class ContentRecyclerViewHorizontal extends AppCompatActivity implements 
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new RecyclerViewAdapter(model, R.layout.content_recyclerview_item_image_horizontal_2);
         mRecyclerView.setAdapter(mAdapter);
+        SnapHelper snapHelper = new LinearSnapHelper();
+        snapHelper.attachToRecyclerView(mRecyclerView);
+        /*
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             int i = 0;
             @Override
@@ -62,7 +67,7 @@ public class ContentRecyclerViewHorizontal extends AppCompatActivity implements 
                 Log.d("Scroll", "a: "+ dx +" | b:"+ dy+" | c: "+i);
             }
         });
-
+        */
         //mRecyclerView.addItemDecoration(dividerItemDecoration);
 
     }

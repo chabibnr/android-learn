@@ -1,1 +1,1 @@
-include ':app', ':ItemHorizontal'
+include ':app', ':components'
