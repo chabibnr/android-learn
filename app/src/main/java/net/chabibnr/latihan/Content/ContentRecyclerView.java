@@ -7,6 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 
 import net.chabibnr.latihan.Adapter.RecyclerViewAdapter;
@@ -19,7 +23,10 @@ public class ContentRecyclerView extends AppCompatActivity implements SwipeRefre
     RecyclerView mRecyclerView;
     RecyclerViewAdapter mAdapter;
     RecyclerView.LayoutManager mLayoutManager;
+    StaggeredGridLayoutManager mStaggeredGridLayoutManager;
     SwipeRefreshLayout mSwipeRefreshLayout;
+    PackageModel mPackageModel;
+    DividerItemDecoration mDividerItemDecoration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,17 +45,43 @@ public class ContentRecyclerView extends AppCompatActivity implements SwipeRefre
                 android.R.color.holo_orange_dark,
                 android.R.color.holo_blue_dark);
 
-        PackageModel model = new PackageModel(this);
+        mPackageModel = new PackageModel(this);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
+        mDividerItemDecoration = new DividerItemDecoration(this, linearLayoutManager.getOrientation());
 
         mLayoutManager = new LinearLayoutManager(this);
+        mStaggeredGridLayoutManager = new StaggeredGridLayoutManager(3, linearLayoutManager.getOrientation());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new RecyclerViewAdapter(model);
+        mAdapter = new RecyclerViewAdapter(mPackageModel);
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.addItemDecoration(dividerItemDecoration);
+        mRecyclerView.addItemDecoration(mDividerItemDecoration);
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.switch_view_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_listview:
+                mRecyclerView.setLayoutManager(mLayoutManager);
+                mAdapter = new RecyclerViewAdapter(mPackageModel);
+                mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView.addItemDecoration(mDividerItemDecoration);
+                break;
+            case R.id.menu_gridview:
+                mRecyclerView.setLayoutManager(mStaggeredGridLayoutManager);
+                mAdapter = new RecyclerViewAdapter(mPackageModel, R.layout.content_recyclerview_item_image_horizontal_2);
+                mRecyclerView.setAdapter(mAdapter);
+                mRecyclerView.removeItemDecoration(mDividerItemDecoration);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
